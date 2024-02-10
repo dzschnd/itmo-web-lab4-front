@@ -1,0 +1,28 @@
+<form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="flex flex-column align-items-center">
+  <div id="register-body">
+    <img alt="Plant" ngSrc="./assets/plant.gif" width="240" height="160" priority>
+    <div id="register-form">
+      <div>
+        <label for="username">Username: </label>
+        <input id="username" name="username" [(ngModel)]="username"
+               placeholder="Username" type="text">
+      </div>
+      <div>
+        <label for="password">Password: </label>
+        <input id="password" name="password" [(ngModel)]="password"
+               placeholder="Password" type="password">
+      </div>
+      <div>
+        <label for="passwordConfirmation">Confirm password: </label>
+        <input id="passwordConfirmation" name="passwordConfirmation" [(ngModel)]="passwordConfirmation"
+               placeholder="Confirm password" type="password">
+      </div>
+        <button [disabled]="registerForm.value.username == '' || registerForm.value.password == '' || registerForm.value.passwordConfirmation == ''"
+                type="submit">Create an account</button>
+    </div>
+    <div>
+      <span>Already have an account? </span>
+      <a routerLink="/login">Sign In</a>
+    </div>
+  </div>
+</form>

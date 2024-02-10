@@ -1,0 +1,92 @@
+.main, .control-and-plot {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: var(--default-gap);
+}
+
+@media (max-width: 1388px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--default-gap);
+  }
+}
+
+@media (max-width: 664px) {
+  .control-and-plot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--default-gap);
+  }
+  table {
+    max-width: 20.3125rem;
+  }
+  #shot_table th, #shot_table td {
+    max-width: 6.7375rem;
+  }
+}
+
+.text-input:invalid {
+  color: var(--color-error);
+}
+
+#shot_form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 18.75rem;
+  min-height: 18.75rem;
+  font-size: var(--default-font-size)
+}
+option{
+  color: black;
+}
+#yInput, #xSelect, #rSelect {
+  color: black;
+  width: 3.5rem;
+}
+button:hover, button:not([disabled]).active{
+  box-shadow: rgba(0, 0, 0, 0.25) 0 0.5rem 1rem;
+}
+button:hover{
+  transform: translateY(-0.125rem);
+}
+button:not([disabled]).active {
+  transform: translateY(-0.375rem);
+}
+button{
+  background-color: black;
+  font-size: var(--default-font-size)
+}
+.input-block, .buttons {
+  width: 10.125rem;
+}
+#back-button {
+  margin-right: 1rem;
+}
+#shoot-button {
+  width: 7.6rem;
+}
+
+#shot_table {
+  border-collapse: collapse;
+  border:solid 0.4rem black;
+  border-radius: 0.3rem;
+  font-size: var(--default-font-size)
+}
+#shot_table > table {
+  width: 40.625rem;
+}
+
+#shot_table th, #shot_table td {
+  width: 13.475rem;
+  text-align: center;
+}
+
+
+

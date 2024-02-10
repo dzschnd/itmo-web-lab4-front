@@ -1,0 +1,21 @@
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <div id="login-body">
+    <img alt="Plant" ngSrc="./assets/plant.gif" width="240" height="160" priority="">
+    <div id="login-form">
+      <div>
+        <label for="username">Username: </label>
+        <input id="username" name="username" [(ngModel)]="username" placeholder="Username" type="text">
+      </div>
+      <div>
+        <label for="password">Password: </label>
+        <input id="password" name="password" [(ngModel)]="password" placeholder="Password" type="password">
+      </div>
+        <button [disabled]="loginForm.value.username == '' || loginForm.value.password == ''"
+                type="submit">Sign In</button>
+    </div>
+    <div>
+      <span>Don't have an account? </span>
+      <a routerLink="/register">Register</a>
+    </div>
+  </div>
+</form>

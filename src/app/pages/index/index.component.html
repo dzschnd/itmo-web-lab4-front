@@ -1,0 +1,11 @@
+<div id="index-div">
+  <img alt="Plant" ngSrc="./assets/plant.gif" width="240" height="160" priority>
+  @if (userService.isLoggedIn) {
+    <h2>Hello, {{ userService.username }}</h2>
+    <a routerLink="main">Start</a>
+    <button (click)="userService.logout()">Logout</button>
+  } @else {
+    <h2>Hello, Guest</h2>
+    <button routerLink="/login">Sign in</button>
+  }
+</div>

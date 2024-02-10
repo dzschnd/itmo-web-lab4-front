@@ -1,0 +1,54 @@
+<div class="main">
+  <div class="control-and-plot">
+  <div class="control">
+    <form id="shot_form" #shotForm="ngForm" (ngSubmit)="onSubmit(shotForm)">
+      <div class="input-block">
+        <label for="xSelect">Select X value: </label>
+        <select id="xSelect" name="x" [(ngModel)]="selectedX">
+          <option *ngFor="let x of availableX" [value]="x">{{ x }}</option>
+        </select>
+      </div>
+      <div class="input-block">
+        <label for="yInput">Input Y value: </label>
+          <input type="text" id="yInput" name="y" ngModel placeholder="from -3 to 5"
+                 pattern="^(?:-3|-[0-2]|0|5|\+?[0-4])(?:\.\d+)?$" />
+      </div>
+      <div class="input-block">
+        <label for="rSelect">Select R value: </label>
+        <select id="rSelect" name="r" [(ngModel)]="selectedR" (ngModelChange)="handleRChanged($event)">
+          <option *ngFor="let r of availableR" [value]="r">{{ r }}</option>
+        </select>
+      </div>
+      <div class="buttons">
+        <button id="back-button" label="<" pButton routerLink="/index"></button>
+        <button id="shoot-button" label="Shoot" pButton [disabled]="!isFormValid(shotForm)"></button>
+      </div>
+    </form>
+  </div>
+
+  <div class="plot">
+    <canvas #plot (click)="onCanvasClick($event)" id="plot__canvas" width="300" height="300"></canvas>
+  </div>
+  </div>
+
+  <div class="table">
+    <div class="card" id="shot_table">
+      <table>
+        <thead>
+        <tr>
+          <th>Time</th>
+          <th>Shot</th>
+          <th>Result</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let shot of shots">
+          <td>{{ shot.shotTime }}</td>
+          <td>{{ '(' + shot.x + '; ' + shot.y + '; ' + shot.r + ')' }}</td>
+          <td>{{ shot.inArea ? 'Hit' : 'Miss' }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

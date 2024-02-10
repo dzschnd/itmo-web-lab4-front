@@ -1,0 +1,12 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--default-gap) 0;
+}
+
+.student-info {
+  text-align: center;
+  font-size: var(--default-font-size);
+  color: black;
+}
